@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,33 +24,57 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text(
+        title: const Text(
           'kharazmi',
           style: TextStyle(color: Colors.white),
         ),
       ),
       body: Container(
-        color: Colors.blueAccent,
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Hamidreza',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),5
-            Text(
-              '09123456789',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: TextField(
+                maxLength: 8,
+                decoration: InputDecoration(
+                    hintText: 'User name',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12))),
               ),
             ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: TextField(
+                maxLength: 8,
+                decoration: InputDecoration(
+                    hintText: 'Password',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12))),
+              ),
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: FilledButton(
+                onPressed: () {},
+                child: Text("Login"),
+                style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(14.0)),
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.blueAccent)),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Text('Dont Have Account? Signup'),
+            )
           ],
         ),
       ),
